@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1
+﻿// A Hello World! program in C#.
+using System;
+namespace HelloWorld
 {
-    class Program
+    class Hello
     {
-        private static object print;
-
-        static void Main(string[] args)
+        static void Main()
         {
-            print "Hello world";
+            Console.WriteLine("Hello World!");
+
+            // Keep the console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
         }
     }
 }
