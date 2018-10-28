@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shop.Data;
 
 namespace Shop
 {
@@ -19,6 +21,13 @@ namespace Shop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //for localdb
+            services.AddDbContext<ShopContext>(options =>
+                                               options.UseSqlServer(Configuration.GetConnectionString("ShopContext")));
+
+            //for sqllite
+            //services.AddDbContext<ShopContext>(options => options.UseSqlite("Data Source=shop.db"));
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
